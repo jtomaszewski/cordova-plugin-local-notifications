@@ -558,10 +558,10 @@ public class LocalNotification extends CordovaPlugin {
             return;
         }
 
-        webView.post(new Runnable(){
+        webView.getView().post(new Runnable(){
             public void run(){
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                    webView.evaluateJavascript(js, null);
+                    webView.sendJavascript(js);
                 } else {
                     webView.loadUrl("javascript:" + js);
                 }
